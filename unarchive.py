@@ -93,39 +93,23 @@ for index, row in df.iterrows():
     print(timestamp, ': Extracting ' + tar_file_key)
     with tarfile.open(input_directory + '/' + tar_file_key, 'r') as tar:
         tar.extractall(path=output_directory)
-    shutil.rmtree(output_directory)
-    os.makedirs(output_directory)
-    print('Output directory cleared out.')
-
-    # Get a list of files in the output directory
-#    files_to_copy = sorted(glob.glob(input_directory + '/*'))
-    
-    # Copy the downloaded files to the S3 bucket using the aws s3 cp command
-#    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#    print(timestamp, ': Transferring to ', destination, ' and clearing ', input_directory)
-#    for file in files_to_copy:
-#        subprocess.run(['aws', 's3', 'cp', file, destination], bufsize=0)
-#        subprocess.run(['rm', '-f', file], bufsize=0)
-    
-    # Print timestamp after each download
-#    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#    print(timestamp, ': Download completed.')
-
-
-
-# Iterate over the extracted files
-for root, dirs, files in os.walk('.'):
-    for file in files:
-        if file.endswith('.bz2'):
-            # Uncompress each .bz2 file
-            with bz2.open(os.path.join(root, file), 'rb') as bz_file:
+    # Iterate over the extracted files
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(timestamp, ': Extracting and transferring .bz2 files for ' + tar_file_key)
+    for root, dirs, files in os.walk(output_directory):
+        for file in files:
+            if file.endswith('.bz2'):
+                # Uncompress each .bz2 file
+                with bz2.open(os.path.join(root, file), 'rb') as bz_file:
                 uncompressed_data = bz_file.read()
-                # Process the uncompressed data (e.g., write to a new file, parse JSON, etc.)
-                # Your processing logic goes here
                 
                 # Get the relative path of the file within the directory tree
                 relative_path = os.path.relpath(os.path.join(root, file), '.')
-
+                
                 # Upload the processed file to the destination S3 bucket with the same directory tree structure
                 destination_key = os.path.join(relative_path, file)
                 s3.put_object(Body=uncompressed_data, Bucket=destination_bucket_name, Key=destination_key)
+    shutil.rmtree(output_directory)
+    os.makedirs(output_directory)
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(timestamp, ': Output directory cleared out for ' + tar_file_key)
