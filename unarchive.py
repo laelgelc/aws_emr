@@ -88,8 +88,9 @@ for index, row in df.iterrows():
     tar_file_key = row['filename-destination']
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(timestamp, ': Downloading ' + tar_file_key)
-    s3.download_file(source_bucket_name, tar_file_key, input_directory + tar_file_key)
-
+    s3.download_file(source_bucket_name, tar_file_key, input_directory + '/' + tar_file_key)
+    with tarfile.open(input_directory + '/' + tar_file_key, 'r') as tar:
+        tar.extractall(path=output_directory)
 
     # Get a list of files in the output directory
 #    files_to_copy = sorted(glob.glob(input_directory + '/*'))
