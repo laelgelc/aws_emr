@@ -89,6 +89,8 @@ for index, row in df.iterrows():
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(timestamp, ': Downloading ' + tar_file_key)
     s3.download_file(source_bucket_name, tar_file_key, input_directory + '/' + tar_file_key)
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(timestamp, ': Extracting ' + tar_file_key)
     with tarfile.open(input_directory + '/' + tar_file_key, 'r') as tar:
         tar.extractall(path=output_directory)
 
