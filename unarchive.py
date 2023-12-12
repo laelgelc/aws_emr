@@ -1,9 +1,12 @@
+from dotenv import load_dotenv
 import boto3
 import pandas as pd
 import tarfile
 import bz2
 import os
 import datetime
+
+load_dotenv()  # This line brings all environment variables from .env into os.environ
 
 # Define the name of the CSV file containing the list of URIs
 uri_list = 'unarchive_uri_list_test.csv'
