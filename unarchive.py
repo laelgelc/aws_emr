@@ -39,7 +39,7 @@ source_bucket_name = os.environ['SOURCE_BUCKET_NAME']
 destination_bucket_name = os.environ['DESTINATION_BUCKET_NAME']
 
 # Define the name of the directory where the downloaded files will be stored
-input_directory = 'unarchive_data_input'
+input_directory = os.environ['INPUT_DIRECTORY']
 
 # Check if the input directory already exists. If it does, remove it and its contents. If it doesn't exist, create it.
 if os.path.exists(input_directory):
@@ -60,7 +60,7 @@ else:
         sys.exit(1)
 
 # Define the name of the directory where the unarchived files will be stored
-output_directory = 'unarchive_data_output'
+output_directory = os.environ['OUTPUT_DIRECTORY']
 
 # Check if the output directory already exists. If it does, remove it and its contents. If it doesn't exist, create it.
 if os.path.exists(output_directory):
