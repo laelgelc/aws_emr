@@ -1,4 +1,4 @@
-filename S3 URI
+filename-destination
 s3://laelgelctweets/twitter_stream_2019_01_01.tar
 s3://laelgelctweets/twitter_stream_2019_01_02.tar
 s3://laelgelctweets/twitter_stream_2019_01_03.tar

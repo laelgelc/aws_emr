@@ -85,10 +85,10 @@ df = pd.read_csv(uri_list, header=0)
 
 # Iterate over each row in the DataFrame
 for index, row in df.iterrows():
-    tar_file_key = row['filename S3 URI']
+    tar_file_key = row['filename-destination']
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(timestamp, ': Downloading ' + tar_file_key)
-    s3.download_file(source_bucket_name, tar_file_key, input_directory)
+    s3.download_file(source_bucket_name, tar_file_key, input_directory + tar_file_key)
 
 
     # Get a list of files in the output directory
