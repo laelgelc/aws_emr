@@ -92,18 +92,18 @@ for index, row in df.iterrows():
 
 
     # Get a list of files in the output directory
-    files_to_copy = sorted(glob.glob(input_directory + '/*'))
+#    files_to_copy = sorted(glob.glob(input_directory + '/*'))
     
     # Copy the downloaded files to the S3 bucket using the aws s3 cp command
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Transferring to ', destination, ' and clearing ', input_directory)
-    for file in files_to_copy:
-        subprocess.run(['aws', 's3', 'cp', file, destination], bufsize=0)
-        subprocess.run(['rm', '-f', file], bufsize=0)
+#    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+#    print(timestamp, ': Transferring to ', destination, ' and clearing ', input_directory)
+#    for file in files_to_copy:
+#        subprocess.run(['aws', 's3', 'cp', file, destination], bufsize=0)
+#        subprocess.run(['rm', '-f', file], bufsize=0)
     
     # Print timestamp after each download
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Download completed.')
+#    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+#    print(timestamp, ': Download completed.')
 
 
 
