@@ -1,3 +1,4 @@
+filename S3 URI
 s3://laelgelctweets/archiveteam-twitter-stream-2018-03.tar
 s3://laelgelctweets/twitter-json-scrape-2011-09.zip
 s3://laelgelctweets/twitter-json-scrape-2011-10.zip
