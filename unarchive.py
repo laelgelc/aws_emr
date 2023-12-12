@@ -4,6 +4,8 @@ import pandas as pd
 import tarfile
 import bz2
 import os
+import sys
+import shutil
 import datetime
 
 load_dotenv()  # This line brings all environment variables from .env into os.environ
