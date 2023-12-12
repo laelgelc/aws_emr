@@ -93,6 +93,9 @@ for index, row in df.iterrows():
     print(timestamp, ': Extracting ' + tar_file_key)
     with tarfile.open(input_directory + '/' + tar_file_key, 'r') as tar:
         tar.extractall(path=output_directory)
+    shutil.rmtree(output_directory)
+    os.makedirs(output_directory)
+    print('Output directory cleared out.')
 
     # Get a list of files in the output directory
 #    files_to_copy = sorted(glob.glob(input_directory + '/*'))
@@ -110,30 +113,19 @@ for index, row in df.iterrows():
 
 
 
-
-# Set up the S3 bucket and file paths
-#tar_file_key = 'path/to/your/tar/file.tar'
-
-# Fetch the .tar file from the source S3 bucket
-#s3.download_file(source_bucket_name, tar_file_key, 'file.tar')
-
-# Uncompress the .tar file
-#with tarfile.open('file.tar', 'r') as tar:
-#    tar.extractall()
-
 # Iterate over the extracted files
-#for root, dirs, files in os.walk('.'):
-#    for file in files:
-#        if file.endswith('.bz2'):
-#            # Uncompress each .bz2 file
-#            with bz2.open(os.path.join(root, file), 'rb') as bz_file:
-#                uncompressed_data = bz_file.read()
-#                # Process the uncompressed data (e.g., write to a new file, parse JSON, etc.)
-#                # Your processing logic goes here
-#                
-#                # Get the relative path of the file within the directory tree
-#                relative_path = os.path.relpath(os.path.join(root, file), '.')
-#
-#                # Upload the processed file to the destination S3 bucket with the same directory tree structure
-#                destination_key = os.path.join(relative_path, file)
-#                s3.put_object(Body=uncompressed_data, Bucket=destination_bucket_name, Key=destination_key)
+for root, dirs, files in os.walk('.'):
+    for file in files:
+        if file.endswith('.bz2'):
+            # Uncompress each .bz2 file
+            with bz2.open(os.path.join(root, file), 'rb') as bz_file:
+                uncompressed_data = bz_file.read()
+                # Process the uncompressed data (e.g., write to a new file, parse JSON, etc.)
+                # Your processing logic goes here
+                
+                # Get the relative path of the file within the directory tree
+                relative_path = os.path.relpath(os.path.join(root, file), '.')
+
+                # Upload the processed file to the destination S3 bucket with the same directory tree structure
+                destination_key = os.path.join(relative_path, file)
+                s3.put_object(Body=uncompressed_data, Bucket=destination_bucket_name, Key=destination_key)
