@@ -1,3 +1,7 @@
+# Edit the file '.env' and provide the required parameters
+# Install the required libraries in the environment by executing: 'pip install -r unarchive.req'
+
+# Importing the required libraries
 from dotenv import load_dotenv
 import boto3
 import pandas as pd
@@ -8,23 +12,23 @@ import sys
 import shutil
 import datetime
 
-load_dotenv()  # This line brings all environment variables from .env into os.environ
+load_dotenv()  # This line brings all environment variables from '.env' into 'os.environ'
 
-# Define the name of the CSV file containing the list of URIs
-uri_list = 'unarchive_uri_list_test.csv'
-#uri_list = 'unarchive_uri_list_2011.csv'
-#uri_list = 'unarchive_uri_list_2012.csv'
-#uri_list = 'unarchive_uri_list_2013.csv'
-#uri_list = 'unarchive_uri_list_2014.csv'
-#uri_list = 'unarchive_uri_list_2015.csv'
-#uri_list = 'unarchive_uri_list_2016.csv'
-#uri_list = 'unarchive_uri_list_2017.csv'
-#uri_list = 'unarchive_uri_list_2018.csv'
-#uri_list = 'unarchive_uri_list_2019.csv'
-#uri_list = 'unarchive_uri_list_2020.csv'
-#uri_list = 'unarchive_uri_list_2021.csv'
-#uri_list = 'unarchive_uri_list_2022.csv'
-#uri_list = 'unarchive_uri_list_2023.csv'
+# Define the name of the CSV file containing the list of S3 keys
+key_list = 'unarchive_key_list_test.csv'
+#key_list = 'unarchive_key_list_2011.csv'
+#key_list = 'unarchive_key_list_2012.csv'
+#key_list = 'unarchive_key_list_2013.csv'
+#key_list = 'unarchive_key_list_2014.csv'
+#key_list = 'unarchive_key_list_2015.csv'
+#key_list = 'unarchive_key_list_2016.csv'
+#key_list = 'unarchive_key_list_2017.csv'
+#key_list = 'unarchive_key_list_2018.csv'
+#key_list = 'unarchive_key_list_2019.csv'
+#key_list = 'unarchive_key_list_2020.csv'
+#key_list = 'unarchive_key_list_2021.csv'
+#key_list = 'unarchive_key_list_2022.csv'
+#key_list = 'unarchive_key_list_2023.csv'
 
 # Set up AWS credentials
 aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID']
@@ -80,8 +84,8 @@ else:
         print('Failed to create the directory:', e)
         sys.exit(1)
 
-# Read the CSV file into a pandas DataFrame
-df = pd.read_csv(uri_list, header=0)
+# Read the key CSV file into a pandas DataFrame
+df = pd.read_csv(key_list, header=0)
 
 # Iterate over each row in the DataFrame
 for index, row in df.iterrows():
@@ -95,7 +99,7 @@ for index, row in df.iterrows():
         tar.extractall(path=output_directory)
     # Iterate over the extracted files
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Extracting and transferring .bz2 files for ' + tar_file_key)
+    print(timestamp, ': Extracting and transferring .bz2 files to S3 for ' + tar_file_key)
     for root, dirs, files in os.walk(output_directory):
         for file in files:
             if file.endswith('.bz2'):
