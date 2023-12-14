@@ -18,13 +18,13 @@ venv () {
     sudo apt install -y python3-venv
     sudo apt install -y awscli
     python3 -m venv my_env
-    source /home/ubuntu/my_env/bin/activate
+    . "$HOME"/my_env/bin/activate
 }
 
 git () {
-    cd /home/ubuntu/my_env
+    cd "$HOME"/my_env || { printf "cd failed, exiting\n" >&2; return 1; }
     git clone https://github.com/laelgelc/gelc.git # Update the git repository link accordingly
-    cd /home/ubuntu/my_env/gelc
+    cd "$HOME"/my_env/gelc || { printf "cd failed, exiting\n" >&2; return 1; }
     pip install -r env.req # Make sure the file 'env.req' contains the requirements of the environment
     aws s3 cp s3://gelc/.env01 .env # Update the reference to the '.env' file accordingly
 }
