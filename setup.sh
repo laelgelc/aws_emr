@@ -10,7 +10,6 @@
 venv () {
     sudo apt install -y python3-pip
     sudo apt install -y python3-venv
-    sudo apt install -y awscli
     python3 -m venv my_env
     . "$HOME"/my_env/bin/activate
 }
