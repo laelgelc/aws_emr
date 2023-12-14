@@ -5,6 +5,7 @@
 # 2. Update and upgrade the operating system
 # 3. Install the AWS CLI: sudo apt install awscli
 # 4. Reboot the EC2 instance from the AWS Console
+# 5. From the EC2 instance download this script: aws s3 cp s3://gelc/setup.sh .
 
 update () {
     sudo apt update
