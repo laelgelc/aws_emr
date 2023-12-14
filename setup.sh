@@ -7,12 +7,6 @@
 # 4. Reboot the EC2 instance from the AWS Console
 # 5. From the EC2 instance download this script: aws s3 cp s3://gelc/setup.sh .
 
-update () {
-    sudo apt update
-    sudo apt upgrade -y
-
-}
-
 venv () {
     sudo apt install -y python3-pip
     sudo apt install -y python3-venv
@@ -21,16 +15,12 @@ venv () {
     . "$HOME"/my_env/bin/activate
 }
 
-git () {
-    cd "$HOME"/my_env || { printf "cd failed, exiting\n" >&2; return 1; }
-    git clone https://github.com/laelgelc/gelc.git # Update the git repository link accordingly
-    cd "$HOME"/my_env/gelc || { printf "cd failed, exiting\n" >&2; return 1; }
-    pip install -r env.req # Make sure the file 'env.req' contains the requirements of the environment
-    aws s3 cp s3://gelc/.env01 .env # Update the reference to the '.env' file accordingly
-}
-
 clear
 
-#update
 venv
-git
+
+cd "$HOME"/my_env || { printf "cd failed, exiting\n" >&2; return 1; }
+git clone https://github.com/laelgelc/gelc.git # Update the git repository link accordingly
+cd "$HOME"/my_env/gelc || { printf "cd failed, exiting\n" >&2; return 1; }
+pip install -r env.req # Make sure the file 'env.req' contains the requirements of the environment
+aws s3 cp s3://gelc/.env01 .env # Update the reference to the '.env' file accordingly
