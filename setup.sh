@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Prior to executing this script, attach the IAM Role 'S3-Admin-Access' to the Ubuntu EC2 instance
+# Prior to executing this script:
+# 1. Attach the IAM Role 'S3-Admin-Access' to the Ubuntu EC2 instance
+# 2. Update and upgrade the operating system
+# 3. Install the AWS CLI: sudo apt install awscli
+# 4. Reboot the EC2 instance from the AWS Console
 
 update () {
     sudo apt update
