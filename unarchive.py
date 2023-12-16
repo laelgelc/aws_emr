@@ -106,15 +106,18 @@ for index, row in df.iterrows():
                 # Uncompress each .bz2 file
                 with bz2.open(os.path.join(root, file), 'rb') as bz_file:
                     uncompressed_data = bz_file.read()
-                
+                    
+                    # Remove the .bz2 extension from the filename
+                    uncompressed_filename = file[:-4]
+                    
                     # Get the relative path of the file within the directory tree
                     relative_path = os.path.relpath(os.path.join(root, file), '.')
-                
+                    
                     # Upload the processed file to the destination S3 bucket with the same directory tree structure
-                    destination_key = os.path.join(relative_path, file)
+                    destination_key = os.path.join(relative_path, uncompressed_filename)
                     s3.put_object(Body=uncompressed_data, Bucket=destination_bucket_name, Key=destination_key)
                     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    print(timestamp, ':', file, 'transferred')
+                    print(timestamp, ':', uncompressed_filename, 'transferred')
     shutil.rmtree(input_directory)
     os.makedirs(input_directory)
     shutil.rmtree(output_directory)
