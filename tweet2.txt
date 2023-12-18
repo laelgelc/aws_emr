@@ -1,0 +1,143 @@
+{
+    "created_at": "Tue Jan 01 07:29:00 +0000 2019",
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    72,
+                    79
+                ],
+                "text": "1FIRST"
+            }
+        ],
+        "symbols": [],
+        "urls": [],
+        "user_mentions": [
+            {
+                "id": 838945692047585300,
+                "id_str": "838945692047585280",
+                "indices": [
+                    3,
+                    15
+                ],
+                "name": "💯🥇#1FIRST ⁹⁷ᴷ❤️💦",
+                "screen_name": "1_F_I_R_S_T"
+            }
+        ]
+    },
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": "low",
+    "id": 1080002938418933800,
+    "id_str": "1080002938418933760",
+    "is_quote_status": false,
+    "lang": "en",
+    "quote_count": 0,
+    "reply_count": 0,
+    "retweet_count": 0,
+    "retweeted": false,
+    "retweeted_status": {
+        "created_at": "Tue Jan 01 07:25:07 +0000 2019",
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        55,
+                        62
+                    ],
+                    "text": "1FIRST"
+                }
+            ],
+            "symbols": [],
+            "urls": [],
+            "user_mentions": []
+        },
+        "favorite_count": 27,
+        "favorited": false,
+        "filter_level": "low",
+        "id": 1080001960122744800,
+        "id_str": "1080001960122744832",
+        "is_quote_status": false,
+        "lang": "en",
+        "quote_count": 0,
+        "reply_count": 4,
+        "retweet_count": 10,
+        "retweeted": false,
+        "source": "<a href=\"http://twuffer.com\" rel=\"nofollow\">Twuffer</a>",
+        "text": "_\nFollow everyone who RETWEET this👉🏻🎀⭐️🎀\n\nGAIN +++💋 \n\n🛑#1FIRST💦",
+        "truncated": false,
+        "user": {
+            "contributors_enabled": false,
+            "created_at": "Tue Mar 07 02:53:34 +0000 2017",
+            "default_profile": false,
+            "default_profile_image": false,
+            "description": "🥇#1FIRST💦 FOUNDER 👒 ADD #1FIRST TO YOUR BIO♻️RT 🌟@1F_st_🌟@I____FREE🌟 I SUPPORT #FREEPEOPLE & #LOYAL🌟 👑 #1EmpireDrive #Teamdollnature 🎄#HappyNewYear2019",
+            "favourites_count": 69999,
+            "followers_count": 97143,
+            "friends_count": 86778,
+            "geo_enabled": false,
+            "id": 838945692047585300,
+            "id_str": "838945692047585280",
+            "is_translator": false,
+            "lang": "en",
+            "listed_count": 447,
+            "name": "💯🥇#1FIRST ⁹⁷ᴷ❤️💦",
+            "profile_background_color": "000000",
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+            "profile_background_tile": false,
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/838945692047585280/1524948800",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/1016121800932016128/B_LgGuqn_normal.jpg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/1016121800932016128/B_LgGuqn_normal.jpg",
+            "profile_link_color": "E81C4F",
+            "profile_sidebar_border_color": "000000",
+            "profile_sidebar_fill_color": "000000",
+            "profile_text_color": "000000",
+            "profile_use_background_image": false,
+            "protected": false,
+            "screen_name": "1_F_I_R_S_T",
+            "statuses_count": 129373,
+            "translator_type": "none",
+            "verified": false
+        }
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "text": "RT @1_F_I_R_S_T: _\nFollow everyone who RETWEET this👉🏻🎀⭐️🎀\n\nGAIN +++💋 \n\n🛑#1FIRST💦",
+    "timestamp_ms": "1546327740660",
+    "truncated": false,
+    "user": {
+        "contributors_enabled": false,
+        "created_at": "Mon Oct 22 07:30:11 +0000 2018",
+        "default_profile": true,
+        "default_profile_image": false,
+        "description": "الحمدلله\nاسترجعت معظم اصدقائي الاوفياء\nوهذا يكفيني عن كل شيء فقدته\n\nوتحياتي\nللبقية الباقيه التي تراني و لا تراني\n\nو سلااااااما  لمن  لا  يعرف  عنواني‏",
+        "favourites_count": 450,
+        "followers_count": 6375,
+        "friends_count": 401,
+        "geo_enabled": true,
+        "id": 1054273695135555600,
+        "id_str": "1054273695135555585",
+        "is_translator": false,
+        "lang": "ar",
+        "listed_count": 9,
+        "location": "Yemen",
+        "name": "كاهن الحروف(الى من لا يهمه أمري)",
+        "profile_background_color": "F5F8FA",
+        "profile_background_image_url": "",
+        "profile_background_image_url_https": "",
+        "profile_background_tile": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1054273695135555585/1540218138",
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1054373923494739968/ggmWwQjj_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1054373923494739968/ggmWwQjj_normal.jpg",
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "protected": false,
+        "screen_name": "1The_King_1",
+        "statuses_count": 98492,
+        "translator_type": "none",
+        "verified": false
+    }
+}
