@@ -22,4 +22,4 @@ cd "$HOME"/my_env || { printf "cd failed, exiting\n" >&2; return 1; }
 git clone https://github.com/laelgelc/gelc.git # Update the git repository link accordingly
 cd "$HOME"/my_env/gelc || { printf "cd failed, exiting\n" >&2; return 1; }
 pip install -r env.req # Make sure the file 'env.req' contains the requirements of the environment
-aws s3 cp s3://gelc/.env01 .env # Update the reference to the '.env' file accordingly
+aws s3 cp s3://gelc/.env .env # Update the reference to the '.env' file accordingly
