@@ -1,18 +1,20 @@
+import argparse
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lower, col, array_contains
+
+# Set the S3 bucket and folder paths
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--data_source', help='The S3 URI of the data source.')
+parser.add_argument(
+    '--output_path', help="The S3 URI of the output path.")
+args = parser.parse_args()
 
 # Create a SparkSession
 spark = SparkSession.builder.appName('The Twitter Grab 2019 Corpus').getOrCreate()
 
-# Set the S3 bucket and folder paths
-source_bucket = 'gelctweets'
-year = '2019'
-month = '01'
-data_source = 's3://' + source_bucket + '/' + year + '_' + month + '/*/*/*/*.json'
-#data_source = 's3://' + source_bucket + '/' + year + '_' + month + '/01/00/29.json.bz2/*.json'
-
 # Read the JSONL files into a DataFrame
-tweets_spark_df = spark.read.json(data_source)
+tweets_spark_df = spark.read.json(args.data_source)
 
 # Define the list of hashtags for DataFrame filtering
 hashtags = [
@@ -176,6 +178,4 @@ filtered_tweets_spark_df = tweets_spark_df.filter(
 )
 
 # Export the DataFrame to JSONL format
-#output_path = 's3://gelcawsemr/2019_01_01_00/filtered_tweets.jsonl'
-output_path = 's3://gelcawsemr/2019_01/filtered_tweets.jsonl'
-filtered_tweets_spark_df.write.mode('overwrite').json(output_path)
+filtered_tweets_spark_df.write.mode('overwrite').json(args.output_path)

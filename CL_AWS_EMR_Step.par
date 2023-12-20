@@ -1,0 +1,47 @@
+2019_01
+--data_source s3://gelctweets/2019_01/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_01/filtered_tweets.jsonl
+
+2019_02
+--data_source s3://gelctweets/2019_02/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_02/filtered_tweets.jsonl
+
+2019_03
+--data_source s3://gelctweets/2019_03/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_03/filtered_tweets.jsonl
+
+2019_04
+--data_source s3://gelctweets/2019_04/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_04/filtered_tweets.jsonl
+
+2019_05
+--data_source s3://gelctweets/2019_05/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_05/filtered_tweets.jsonl
+
+2019_06
+--data_source s3://gelctweets/2019_06/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_06/filtered_tweets.jsonl
+
+2019_07
+--data_source s3://gelctweets/2019_07/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_07/filtered_tweets.jsonl
+
+2019_08
+--data_source s3://gelctweets/2019_08/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_08/filtered_tweets.jsonl
+
+2019_09
+--data_source s3://gelctweets/2019_09/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_09/filtered_tweets.jsonl
+
+2019_10
+--data_source s3://gelctweets/2019_10/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_10/filtered_tweets.jsonl
+
+2019_11
+--data_source s3://gelctweets/2019_11/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_11/filtered_tweets.jsonl
+
+2019_12
+--data_source s3://gelctweets/2019_12/*/*/*/*.json
+--output_path s3://gelcawsemr/2019_12/filtered_tweets.jsonl
