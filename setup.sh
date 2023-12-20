@@ -3,7 +3,7 @@
 # Prior to executing this script:
 # 1. Attach the IAM Role 'S3-Admin-Access' to the Ubuntu EC2 instance
 # 2. Update and upgrade the operating system
-# 3. Install the AWS CLI: sudo apt install awscli
+# 3. Install the AWS CLI: sudo apt install -y awscli
 # 4. Reboot the EC2 instance from the AWS Console
 # 5. From the EC2 instance download this script: aws s3 cp s3://gelc/setup.sh .
 
