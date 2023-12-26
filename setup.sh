@@ -11,7 +11,7 @@ venv () {
     sudo apt install -y python3-pip
     sudo apt install -y python3-venv
     python3 -m venv my_env
-    . "$HOME"/my_env/bin/activate
+    source "$HOME"/my_env/bin/activate
 }
 
 clear
