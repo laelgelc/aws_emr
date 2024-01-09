@@ -1,5 +1,5 @@
 # Edit the file '.env' and provide the required parameters
-# Install the required libraries in the environment by executing: 'pip install -r unarchive.req'
+# Install the required libraries in the environment by executing: 'pip install -r env.req'
 
 # Importing the required libraries
 from dotenv import load_dotenv
