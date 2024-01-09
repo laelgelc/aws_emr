@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import boto3
 import pandas as pd
 import tarfile
+import zipfile
 import bz2
 import os
 import sys
@@ -15,7 +16,8 @@ import datetime
 load_dotenv()  # This line brings all environment variables from '.env' into 'os.environ'
 
 # Define the name of the CSV file containing the list of S3 keys
-key_list = 'unarchive_key_list_test.csv'
+key_list = os.environ['KEY_LIST']
+#key_list = 'unarchive_key_list_test.csv'
 #key_list = 'unarchive_key_list_2011.csv'
 #key_list = 'unarchive_key_list_2012.csv'
 #key_list = 'unarchive_key_list_2013.csv'
@@ -89,17 +91,24 @@ df = pd.read_csv(key_list, header=0)
 
 # Iterate over each row in the DataFrame
 for index, row in df.iterrows():
-    tar_file_key = row['filename-destination']
+    file_key = row['filename-destination']
+    input_file_path = input_directory + '/' + file_key
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Downloading ' + tar_file_key)
-    s3.download_file(source_bucket_name, tar_file_key, input_directory + '/' + tar_file_key)
+    print(timestamp, ': Downloading ' + file_key)
+    s3.download_file(source_bucket_name, file_key, input_file_path)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Extracting ' + tar_file_key)
-    with tarfile.open(input_directory + '/' + tar_file_key, 'r') as tar:
-        tar.extractall(path=output_directory)
+    print(timestamp, ': Extracting ' + file_key)
+    if input_file_path.endswith('.tar') or input_file_path.endswith('.tar.gz'):
+        with tarfile.open(input_file_path, 'r') as tar:
+            tar.extractall(path=output_directory)
+    elif input_file_path.endswith('.zip'):
+        with zipfile.ZipFile(input_file_path, 'r') as zip:
+            zip.extractall(path=output_directory)
+    else:
+        print(f'Error: {input_file_path} is not a supported archive file.')
     # Iterate over the extracted files
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Extracting and transferring .bz2 files to S3 for ' + tar_file_key)
+    print(timestamp, ': Extracting and transferring .bz2 files to S3 for ' + file_key)
     for root, dirs, files in os.walk(output_directory):
         for file in files:
             if file.endswith('.bz2'):
@@ -123,4 +132,4 @@ for index, row in df.iterrows():
     shutil.rmtree(output_directory)
     os.makedirs(output_directory)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(timestamp, ': Input and output directories cleared out for ' + tar_file_key)
+    print(timestamp, ': Input and output directories cleared out for ' + file_key)
