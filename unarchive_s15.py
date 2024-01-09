@@ -1,6 +1,21 @@
 # Edit the file '.env' and provide the required parameters
 # Install the required libraries in the environment by executing: 'pip install -r env.req'
 
+# Note about server sizing
+# The server should have its disk space sized according to the following example:
+#Unarchive instance 1: 30 GB + 240 GB = 270 GB
+#- Largest archive to be extracted: 30 GB
+#- Archive fully extracted: 8 * 30 GB = 240 GB
+#
+#Unarchive instances 2, 3 and 4: 3 GB + 24 GB = 27 GB (each)
+#- Largest archive to be extracted: 3 GB
+#- Archive fully extracted: 8 * 3 GB = 24 GB
+#
+#Server 1: 270 GB + 81 GB + 3 GB = 354 GB ~ 360 GB
+#- Unarchive instances 1: 270 GB
+#- Unarchive instances 2, 3 and 4: 3 * 27 GB = 81 GB
+#- Operating system: 3 GB
+
 # Importing the required libraries
 from dotenv import load_dotenv
 import boto3
