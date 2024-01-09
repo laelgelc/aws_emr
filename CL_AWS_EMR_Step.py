@@ -14,7 +14,8 @@ args = parser.parse_args()
 spark = SparkSession.builder.appName('The Twitter Grab 2019 Corpus').getOrCreate()
 
 # Read the JSONL files into a DataFrame
-tweets_spark_df = spark.read.json(args.data_source)
+#tweets_spark_df = spark.read.json(args.data_source) # RevA parameters
+tweets_spark_df = spark.read.option('recursiveFileLookup', 'true').json(args.data_source) # RevB parameters
 
 # Define the list of hashtags for DataFrame filtering
 hashtags = [
