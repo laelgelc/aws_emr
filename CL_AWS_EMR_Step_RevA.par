@@ -1,5 +1,5 @@
 Application location
-s3://laelgelcawsemrmariana/CL_AWS_EMR_Mariana_2019.py
+s3://laelgelcawsemrmariana/CL_AWS_EMR_Step_Mariana_2019.py
 
 2019_01
 --data_source s3://gelctweets/2019_01/*/*/*/*.json
